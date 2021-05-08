@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  mariadb-socialmedia:
+    env_file:
+      - socialmedia-db-variables.env
+    image: "mariadb:${SOCIALMEDIA_MARIADB_VERSION}"
+    restart: 'always'
+    ports:
+      - '${SOCIALMEDIA_MARIADB_POST}:3306'
+    volumes:
+      - ${SOCIALMEDIA_MARIADB_DATA_DIR}:/var/lib/mysql
+      - ${SOCIALMEDIA_MARIADB_LOG_DIR}:/var/log/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${SOCIALMEDIA_MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${SOCIALMEDIA_MYSQL_DATABASE}
+      MYSQL_USER: ${SOCIALMEDIA_MYSQL_USER}
+      MYSQL_PASSWORD: ${SOCIALMEDIA_MYSQL_PASSWORD}
