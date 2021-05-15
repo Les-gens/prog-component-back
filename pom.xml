@@ -19,7 +19,7 @@
         <module>admin</module>
         <module>config</module>
         <module>gateway</module>
-        <module>socialmedia</module>
+        <module>post</module>
     </modules>
 
     <properties>
@@ -43,6 +43,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
