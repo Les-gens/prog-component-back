@@ -19,7 +19,8 @@
         <module>admin</module>
         <module>config</module>
         <module>gateway</module>
-        <module>socialmedia</module>
+        <module>post</module>
+        <module>user</module>
     </modules>
 
     <properties>
