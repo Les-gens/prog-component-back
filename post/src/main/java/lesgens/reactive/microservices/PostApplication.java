@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-public class SocialmediaApplication {
+public class PostApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SocialmediaApplication.class, args);
+		SpringApplication.run(PostApplication.class, args);
 	}
 
 }

@@ -9,9 +9,9 @@
 		<relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>lesgens</groupId>
-	<artifactId>socialmedia</artifactId>
+	<artifactId>post</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>socialmedia</name>
+	<name>post</name>
 	<description>gateway</description>
 	<properties>
 		<java.version>11</java.version>
