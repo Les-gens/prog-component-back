@@ -12,7 +12,7 @@
 	<artifactId>post</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>post</name>
-	<description>gateway</description>
+	<description>post</description>
 	<properties>
 		<java.version>11</java.version>
 		<spring-boot-admin.version>2.3.1</spring-boot-admin.version>
@@ -33,6 +33,11 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>org.mariadb</groupId>
+            <artifactId>r2dbc-mariadb</artifactId>
+            <scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
