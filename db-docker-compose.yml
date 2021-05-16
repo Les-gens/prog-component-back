@@ -1,18 +1,34 @@
 version: "3"
 
 services:
-  mariadb-socialmedia:
+  mariadb-post:
     env_file:
-      - socialmedia-db-variables.env
-    image: "mariadb:${SOCIALMEDIA_MARIADB_VERSION}"
+      - post-db-variables.env
+    image: "mariadb:${POST_MARIADB_VERSION}"
     restart: 'always'
     ports:
-      - '${SOCIALMEDIA_MARIADB_POST}:3306'
+      - '${POST_MARIADB_POST}:3306'
     volumes:
-      - ${SOCIALMEDIA_MARIADB_DATA_DIR}:/var/lib/mysql
-      - ${SOCIALMEDIA_MARIADB_LOG_DIR}:/var/log/mysql
+      - ${POST_MARIADB_DATA_DIR}:/var/lib/mysql
+      - ${POST_MARIADB_LOG_DIR}:/var/log/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: ${SOCIALMEDIA_MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${SOCIALMEDIA_MYSQL_DATABASE}
-      MYSQL_USER: ${SOCIALMEDIA_MYSQL_USER}
-      MYSQL_PASSWORD: ${SOCIALMEDIA_MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${POST_MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${POST_MYSQL_DATABASE}
+      MYSQL_USER: ${POST_MYSQL_USER}
+      MYSQL_PASSWORD: ${POST_MYSQL_PASSWORD}
+
+  mariadb-user:
+    env_file:
+      - user-db-variables.env
+    image: "mariadb:${USER_MARIADB_VERSION}"
+    restart: 'always'
+    ports:
+      - '${USER_MARIADB_POST}:3306'
+    volumes:
+      - ${USER_MARIADB_DATA_DIR}:/var/lib/mysql
+      - ${USER_MARIADB_LOG_DIR}:/var/log/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${USER_MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${USER_MYSQL_DATABASE}
+      MYSQL_USER: ${USER_MYSQL_USER}
+      MYSQL_PASSWORD: ${USER_MYSQL_PASSWORD}
