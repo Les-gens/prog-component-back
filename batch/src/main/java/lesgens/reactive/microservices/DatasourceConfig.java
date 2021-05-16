@@ -16,36 +16,36 @@ public class DatasourceConfig {
     @Primary
     @Bean
     @ConfigurationProperties(prefix = "datasource.post")
-    public DataSource lessonsDataSource() {
+    public DataSource postDataSource() {
         return DataSourceBuilder.create().build();
     }
 
     @Bean
     @ConfigurationProperties(prefix = "datasource.post.liquibase")
-    public LiquibaseProperties lessonsLiquibaseProperties() {
+    public LiquibaseProperties postLiquibaseProperties() {
         return new LiquibaseProperties();
     }
 
     @Bean
-    public SpringLiquibase lessonsLiquibase() {
-        return springLiquibase(lessonsDataSource(), lessonsLiquibaseProperties());
+    public SpringLiquibase postLiquibase() {
+        return springLiquibase(postDataSource(), postLiquibaseProperties());
     }
 
     @Bean
     @ConfigurationProperties(prefix = "datasource.user")
-    public DataSource notationsDataSource() {
+    public DataSource userDataSource() {
         return DataSourceBuilder.create().build();
     }
 
     @Bean
     @ConfigurationProperties(prefix = "datasource.user.liquibase")
-    public LiquibaseProperties notationsLiquibaseProperties() {
+    public LiquibaseProperties userLiquibaseProperties() {
         return new LiquibaseProperties();
     }
 
     @Bean
-    public SpringLiquibase notationsLiquibase() {
-        return springLiquibase(notationsDataSource(), notationsLiquibaseProperties());
+    public SpringLiquibase userLiquibase() {
+        return springLiquibase(userDataSource(), userLiquibaseProperties());
     }
 
     private static SpringLiquibase springLiquibase(DataSource dataSource, LiquibaseProperties properties) {
