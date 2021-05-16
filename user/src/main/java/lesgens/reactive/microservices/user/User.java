@@ -1,17 +1,25 @@
 package lesgens.reactive.microservices.user;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.sql.Date;
 
 import org.springframework.data.annotation.Id;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Builder
 public class User {
     @Id
-    private long userId;
+    private Long userId;
     private String username;
     private String familyname;
     private String firstname;

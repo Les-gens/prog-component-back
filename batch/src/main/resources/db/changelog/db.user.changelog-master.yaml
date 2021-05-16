@@ -1,0 +1,108 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 1
+      author: verzelea
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: userId
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(50)
+              - column:
+                  name: familyname
+                  type: varchar(50)
+              - column:
+                  name: firstname
+                  type: varchar(50)
+              - column:
+                  name: password
+                  type: varchar(50)
+              - column:
+                  name: birthday
+                  type: DATETIME
+              - column:
+                  name: description
+                  type: varchar(50)
+
+  - changeSet:
+      id: 2
+      author: verzelea
+      changes:
+        - createTable:
+            tableName: friend
+            columns:
+              - column:
+                  name: friends
+                  type: int
+                  autoIncrement: false
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: friendOf
+                  type: int
+                  autoIncrement: false
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+  - changeSet:
+      id: 3
+      author: verzelea
+      changes:
+        - createTable:
+            tableName: request
+            columns:
+              - column:
+                  name: requester
+                  type: int
+                  autoIncrement: false
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: requested
+                  type: int
+                  autoIncrement: false
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+  - changeSet:
+      id: 4
+      author:  verzelea
+      changes:
+        - sqlFile:
+            splitStatements: true
+            path: raw/friend.sql
+            stripComments: true
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: 5
+      author:  verzelea
+      changes:
+        - sqlFile:
+            splitStatements: true
+            path: raw/user.sql
+            stripComments: true
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: 6
+      author:  verzelea
+      changes:
+        - sqlFile:
+            splitStatements: true
+            path: raw/request.sql
+            stripComments: true
+            relativeToChangelogFile: true

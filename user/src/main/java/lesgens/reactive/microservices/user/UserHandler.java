@@ -48,7 +48,7 @@ public class UserHandler {
         return Mono
                 .from(user)
                 .flatMap(p -> ServerResponse
-                        .created(URI.create("/api/devoirs/" + p.getUserId()))
+                        .created(URI.create("/api/user/" + p.getUserId()))
                         .contentType(MediaType.APPLICATION_JSON)
                         .build()
                 );
@@ -62,6 +62,6 @@ public class UserHandler {
     }
 
     private static Long id(ServerRequest r) {
-        return Long.parseUnsignedLong(r.pathVariable("id"));
+        return Long.parseUnsignedLong(r.pathVariable("userId"));
     }
 }
