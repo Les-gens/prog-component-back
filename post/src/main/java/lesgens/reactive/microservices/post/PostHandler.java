@@ -20,6 +20,8 @@ public class PostHandler {
 
     Mono<ServerResponse>all(ServerRequest r) { return defaultReadResponse(this.postService.all());}
 
+    Mono<ServerResponse>showPosts(ServerRequest r) { return defaultReadResponse(this.postService.showPosts(id(r)));}
+
     Mono<ServerResponse>deleteById(ServerRequest r) { return defaultReadResponse(this.postService.delete(id(r)));}
 
     Mono<ServerResponse> updateById(ServerRequest r) {

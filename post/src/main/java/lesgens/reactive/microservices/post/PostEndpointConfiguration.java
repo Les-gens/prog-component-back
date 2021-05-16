@@ -16,6 +16,7 @@ public class PostEndpointConfiguration {
     @Bean("postRoutes")
     RouterFunction<ServerResponse> routes(PostHandler handler) {
         return route(GET("/api/posts"), handler::all)
+                .andRoute(GET("api/posts/show"), handler::showPosts)
                 .andRoute(GET("api/posts/{id}"), handler::getById)
                 .andRoute(DELETE("api/posts/{id}"), handler::deleteById)
                 .andRoute(POST("api/posts"), handler::create)

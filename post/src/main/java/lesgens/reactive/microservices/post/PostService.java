@@ -14,6 +14,8 @@ public class PostService {
 
     public Flux<Post> all() { return this.postRepository.findAll(); }
 
+    public Flux<Post>showPosts(Long userId) { return this.postRepository.showPosts(userId); }
+
     public Mono<Post> get(Long id) { return this.postRepository.findById(id); }
 
     public Mono<Post>update(Long id, String titre, String text, Long user_id, Boolean private_post) {
