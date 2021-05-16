@@ -1,0 +1,1 @@
+INSERT INTO Request (requester_id, requested_id) VALUES (1, 2);
