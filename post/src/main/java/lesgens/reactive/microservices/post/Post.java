@@ -14,6 +14,6 @@ public class Post {
     private String titre;
     private String text;
     private Long userId;
-    private boolean privatePost;
+    private Boolean privatePost;
 
 }

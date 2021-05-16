@@ -2,8 +2,8 @@ package lesgens.reactive.microservices.post;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.function.RouterFunction;
-import org.springframework.web.servlet.function.ServerResponse;
+import org.springframework.web.reactive.function.server.RouterFunction;
+import org.springframework.web.reactive.function.server.ServerResponse;
 
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 import static org.springframework.web.reactive.function.server.RequestPredicates.DELETE;
@@ -19,7 +19,7 @@ public class PostEndpointConfiguration {
                 .andRoute(GET("api/posts/{id}"), handler::getById)
                 .andRoute(DELETE("api/posts/{id}"), handler::deleteById)
                 .andRoute(POST("api/posts"), handler::create)
-                .andRoute(PUT("api/posts/{id}"), handler::updateById)
+                .andRoute(PUT("api/posts/{id}"), handler::updateById);
     }
 
 }

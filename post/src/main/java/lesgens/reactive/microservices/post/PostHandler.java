@@ -6,7 +6,10 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.net.URI;
 
 @AllArgsConstructor
 @Component
@@ -18,6 +21,29 @@ public class PostHandler {
     Mono<ServerResponse>all(ServerRequest r) { return defaultReadResponse(this.postService.all());}
 
     Mono<ServerResponse>deleteById(ServerRequest r) { return defaultReadResponse(this.postService.delete(id(r)));}
+
+    Mono<ServerResponse> updateById(ServerRequest r) {
+        Flux<Post> id = r.bodyToFlux(Post.class)
+                .flatMap(p -> this.postService.update(id(r), p.getTitre(), p.getText(), p.getUserId(), p.getPrivatePost()));
+        return defaultReadResponse(id);
+    }
+
+    Mono<ServerResponse> create(ServerRequest request) {
+        Flux<Post> flux = request
+                .bodyToFlux(Post.class)
+                .flatMap(toWrite -> this.postService.create(toWrite.getTitre(), toWrite.getText(), toWrite.getUserId(), toWrite.getPrivatePost()));
+        return defaultWriteResponse(flux);
+    }
+
+    private static Mono<ServerResponse> defaultWriteResponse(Publisher<Post> post) {
+        return Mono
+                .from(post)
+                .flatMap(p -> ServerResponse
+                        .created(URI.create("/api/notes/" + p.getPostId()))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .build()
+                );
+    }
 
     private static Mono<ServerResponse> defaultReadResponse(Publisher<Post> post){
         return ServerResponse

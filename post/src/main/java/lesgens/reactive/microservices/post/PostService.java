@@ -16,7 +16,7 @@ public class PostService {
 
     public Mono<Post> get(Long id) { return this.postRepository.findById(id); }
 
-    public Mono<Post>update(Long id, String titre, String text, Long user_id, boolean private_post) {
+    public Mono<Post>update(Long id, String titre, String text, Long user_id, Boolean private_post) {
         return this.postRepository
                 .findById(id)
                 .map(p -> {
