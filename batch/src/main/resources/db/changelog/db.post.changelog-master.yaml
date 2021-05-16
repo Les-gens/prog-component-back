@@ -8,7 +8,7 @@ databaseChangeLog:
             tableName: user
             columns:
               - column:
-                  name: postId
+                  name: post_id
                   type: int
                   autoIncrement: true
                   constraints:
