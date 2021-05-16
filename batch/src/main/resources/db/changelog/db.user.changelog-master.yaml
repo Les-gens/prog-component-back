@@ -8,7 +8,7 @@ databaseChangeLog:
             tableName: user
             columns:
               - column:
-                  name: userId
+                  name: user_id
                   type: int
                   autoIncrement: true
                   constraints:
@@ -18,10 +18,10 @@ databaseChangeLog:
                   name: username
                   type: varchar(50)
               - column:
-                  name: familyname
+                  name: nom
                   type: varchar(50)
               - column:
-                  name: firstname
+                  name: prenom
                   type: varchar(50)
               - column:
                   name: password
@@ -41,14 +41,14 @@ databaseChangeLog:
             tableName: friend
             columns:
               - column:
-                  name: friends
+                  name: person_id
                   type: int
                   autoIncrement: false
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: friendOf
+                  name: friend_id
                   type: int
                   autoIncrement: false
                   constraints:
@@ -63,14 +63,14 @@ databaseChangeLog:
             tableName: request
             columns:
               - column:
-                  name: requester
+                  name: requester_id
                   type: int
                   autoIncrement: false
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: requested
+                  name: requested_id
                   type: int
                   autoIncrement: false
                   constraints:
