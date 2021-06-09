@@ -2,15 +2,18 @@ package lesgens.reactive.microservices.post;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import lesgens.reactive.microservices.post.PostRepository;
+
 @Log4j2
 @RequiredArgsConstructor
 @Service
-public class PostService {
-    private final PostRepository postRepository;
+public class PostService { 
+    private PostRepository postRepository;
 
     public Flux<Post> all() { return this.postRepository.findAll(); }
 

@@ -3,7 +3,6 @@ package lesgens.reactive.microservices.user;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -14,10 +13,9 @@ import java.time.LocalDateTime;
 @Log4j2
 @RequiredArgsConstructor
 @Service
-@Component
 class UserService implements IUserService{
 
-    private final UserRepository userRepository;
+    private UserRepository userRepository;
 
     public Flux<User> all() {
         return this.userRepository.findAll();

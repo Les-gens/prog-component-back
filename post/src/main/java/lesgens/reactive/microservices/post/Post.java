@@ -1,13 +1,19 @@
 package lesgens.reactive.microservices.post;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.springframework.data.annotation.Id;
-
-
-
-@Data
+import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+@Getter
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Builder
 public class Post {
     @Id
     private Long postId;
