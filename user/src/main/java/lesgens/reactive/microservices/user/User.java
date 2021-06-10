@@ -21,8 +21,8 @@ public class User {
     @Id
     private Long userId;
     private String username;
-    private String familyname;
-    private String firstname;
+    private String nom;
+    private String prenom;
     private String password;
     private LocalDate birthday;
     private String description;

@@ -28,13 +28,13 @@ class UserService implements IUserService{
         return this.userRepository.findById(id);
     }
 
-    public Mono<User> update(Long id, String username, String familyname, String firstname, String password, LocalDate birthday, String description) {
+    public Mono<User> update(Long id, String username, String nom, String prenom, String password, LocalDate birthday, String description) {
         return this.userRepository
                 .findById(id)
                 .map(p -> {
                     p.setUsername(username);
-                    p.setFamilyname(familyname);
-                    p.setFirstname(firstname);
+                    p.setNom(nom);
+                    p.setPrenom(prenom);
                     p.setPassword(password);
                     p.setBirthday(birthday);
                     p.setDescription(description);
@@ -49,8 +49,8 @@ class UserService implements IUserService{
                 .flatMap(p -> this.userRepository.deleteById(p.getUserId()).thenReturn(p));
     }
 
-    public Mono<User> create(String username, String familyname, String firstname, String password, LocalDate birthday, String description) {
-        return this.userRepository.save(new User(null, username, familyname, firstname, password, birthday, description));
+    public Mono<User> create(String username, String nom, String prenom, String password, LocalDate birthday, String description) {
+        return this.userRepository.save(new User(null, username, nom, prenom, password, birthday, description));
     }
 
     @Override

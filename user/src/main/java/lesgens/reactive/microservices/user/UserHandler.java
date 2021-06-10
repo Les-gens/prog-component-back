@@ -34,8 +34,8 @@ public class UserHandler {
 
     Mono<ServerResponse> updateById(ServerRequest r) {
         Flux<User> id = r.bodyToFlux(User.class)
-                .flatMap(p -> this.userService.update(id(r), p.getUsername(), p.getFamilyname(),
-                p.getFirstname(), p.getPassword(), p.getBirthday(), p.getDescription()));
+                .flatMap(p -> this.userService.update(id(r), p.getUsername(), p.getNom(),
+                p.getPrenom(), p.getPassword(), p.getBirthday(), p.getDescription()));
         return defaultReadResponse(id);
     }
 
@@ -43,7 +43,7 @@ public class UserHandler {
         Flux<User> flux = request
                 .bodyToFlux(User.class)
                 .flatMap(toWrite -> this.userService.create(toWrite.getUsername(),
-                toWrite.getFamilyname(), toWrite.getFirstname(), toWrite.getPassword(),
+                toWrite.getNom(), toWrite.getPrenom(), toWrite.getPassword(),
                 toWrite.getBirthday(), toWrite.getDescription()));
         return defaultWriteResponse(flux);
     }
