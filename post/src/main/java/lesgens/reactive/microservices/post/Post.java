@@ -16,7 +16,7 @@ import lombok.Setter;
 public class Post {
     @Id
     private Long postId;
-    private String titre;
+    private String title;
     private String text;
     private Long userId;
     private Boolean privatePost;

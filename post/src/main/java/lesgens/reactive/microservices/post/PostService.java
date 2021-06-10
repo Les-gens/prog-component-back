@@ -27,7 +27,7 @@ public class PostService {
         return this.postRepository
                 .findById(id)
                 .map(p -> {
-                    p.setTitre(titre);
+                    p.setTitle(titre);
                     p.setText(text);
                     p.setPrivatePost(private_post);
                     return p;
@@ -41,7 +41,7 @@ public class PostService {
                 .flatMap(p -> this.postRepository.deleteById(p.getPostId()).thenReturn(p));
     }
 
-    public Mono<Post> create(String titre, String text, Long user_id, boolean private_post){
-        return this.postRepository.save(new Post(null, titre, text, user_id, private_post));
+    public Mono<Post> create(String title, String text, Long user_id, Boolean private_post){
+        return this.postRepository.save(new Post(null, title, text, user_id, private_post));
     }
 }

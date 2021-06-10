@@ -28,14 +28,14 @@ public class PostHandler {
 
     Mono<ServerResponse> updateById(ServerRequest r) {
         Flux<Post> id = r.bodyToFlux(Post.class)
-                .flatMap(p -> this.postService.update(id(r), p.getTitre(), p.getText(), p.getUserId(), p.getPrivatePost()));
+                .flatMap(p -> this.postService.update(id(r), p.getTitle(), p.getText(), p.getUserId(), p.getPrivatePost()));
         return defaultReadResponse(id);
     }
 
     Mono<ServerResponse> create(ServerRequest request) {
         Flux<Post> flux = request
                 .bodyToFlux(Post.class)
-                .flatMap(toWrite -> this.postService.create(toWrite.getTitre(), toWrite.getText(), toWrite.getUserId(), toWrite.getPrivatePost()));
+                .flatMap(toWrite -> this.postService.create(toWrite.getTitle(), toWrite.getText(), toWrite.getUserId(), toWrite.getPrivatePost()));
         return defaultWriteResponse(flux);
     }
 
