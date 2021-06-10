@@ -1,18 +1,29 @@
 # prog-component-back
 
-This is a REST spring-boot backend for our prog component project. 
+# endpoints : 
 
-In this proejct you can :
-* You can sign-up on the `/users/sign-up` endpoint.
-* Login on the `/login` endpoint that will give you in the header a token that you will need to access the other endpoints.
-* There is also two endpoints `/posts/**`, `/users/**` where you can find all the datas.
-* You can also see your friend requests, accept them and send friend reuests to other people (more details on these endpoints in the  `methods.json` file)
+## POSTS
 
--> A list of pre-filled endpoints are available in the `methods.json`file that you can import in postman/insomnia... to try the endpoints easily
+* (GET) => http://localhost:7100/api/posts
+* (GET) => http://localhost:7100/api/posts/{id}
+* (POST) => http://localhost:7100/api/posts
+* (DELETE) => http://localhost:7100/api/posts/{id}
+* (PUT) => http://localhost:7100/api/posts/{id}
 
-# Run the project with maven 
+## USERS
 
-> maven clean && maven spring-boot:run
+* (GET) => http://localhost:7101/api/users
+* (GET) => http://localhost:7101/api/users/{id}
+* (POST) => http://localhost:7101/api/users
+* (DELETE) => http://localhost:7101/api/users/{id}
+* (PUT) => http://localhost:7101/api/users/{id}
+
+
+# Afin de lancer le projet 
+
+Cd dans chacun des micro services séparément (admin, batch, config, gateway, post, user) : 
+
+> mvn clean && mvn spring-boot:run
 
 # Authors
 
