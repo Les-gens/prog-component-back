@@ -20,21 +20,21 @@ public class DatasourceConfig {
         return DataSourceBuilder.create().build();
     }
 
+   @Bean
+   @ConfigurationProperties(prefix = "datasource.user")
+    public DataSource userDataSource() {
+       return DataSourceBuilder.create().build();
+   }
+
     @Bean
     @ConfigurationProperties(prefix = "datasource.post.liquibase")
     public LiquibaseProperties postLiquibaseProperties() {
         return new LiquibaseProperties();
     }
 
-    @Bean
+  @Bean
     public SpringLiquibase postLiquibase() {
         return springLiquibase(postDataSource(), postLiquibaseProperties());
-    }
-
-    @Bean
-    @ConfigurationProperties(prefix = "datasource.user")
-    public DataSource userDataSource() {
-        return DataSourceBuilder.create().build();
     }
 
     @Bean

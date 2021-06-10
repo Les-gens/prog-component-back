@@ -5,7 +5,7 @@ databaseChangeLog:
       author: verzelea
       changes:
         - createTable:
-            tableName: user
+            tableName: post
             columns:
               - column:
                   name: post_id
