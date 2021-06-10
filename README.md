@@ -43,6 +43,9 @@
 
 # Afin de lancer le projet 
 
+Lancer la db avec docker à la racine avec 
+> docker-compose -f db-docker-compose.yml up
+
 Cd dans chacun des micro services séparément (admin, batch, config, gateway, post, user) : 
 
 > mvn clean && mvn spring-boot:run
