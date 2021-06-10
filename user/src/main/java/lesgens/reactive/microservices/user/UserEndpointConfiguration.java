@@ -15,10 +15,10 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class UserEndpointConfiguration {
     @Bean("userRoutes")
     RouterFunction<ServerResponse> routes(UserHandler handler) {
-        return route(GET("/api/user"), handler::all)
-                .andRoute(GET("/api/user/{id}"), handler::getById)
-                .andRoute(DELETE("/api/user/{id}"), handler::deleteById)
-                .andRoute(POST("/api/user"), handler::create)
-                .andRoute(PUT("/api/user/{id}"), handler::updateById);
+        return route(GET("/api/users"), handler::all)
+                .andRoute(GET("/api/users/{id}"), handler::getById)
+                .andRoute(DELETE("/api/users/{id}"), handler::deleteById)
+                .andRoute(POST("/api/users"), handler::create)
+                .andRoute(PUT("/api/users/{id}"), handler::updateById);
     }
 }

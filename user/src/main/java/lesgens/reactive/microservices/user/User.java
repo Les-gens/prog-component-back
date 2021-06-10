@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import org.springframework.data.annotation.Id;
 
@@ -24,6 +24,6 @@ public class User {
     private String familyname;
     private String firstname;
     private String password;
-    private Date birthday;
+    private LocalDate birthday;
     private String description;
 }

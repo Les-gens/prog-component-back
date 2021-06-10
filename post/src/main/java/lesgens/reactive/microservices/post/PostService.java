@@ -8,11 +8,13 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import lesgens.reactive.microservices.post.PostRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Log4j2
 @RequiredArgsConstructor
 @Service
-public class PostService { 
+public class PostService {
+    @Autowired
     private PostRepository postRepository;
 
     public Flux<Post> all() { return this.postRepository.findAll(); }

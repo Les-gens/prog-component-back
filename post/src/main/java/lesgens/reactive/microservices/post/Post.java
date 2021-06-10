@@ -1,7 +1,6 @@
 package lesgens.reactive.microservices.post;
 
 import org.springframework.data.annotation.Id;
-import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

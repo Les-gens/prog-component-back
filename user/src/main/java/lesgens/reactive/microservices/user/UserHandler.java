@@ -8,13 +8,17 @@ import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 import java.net.URI;
 
 @AllArgsConstructor
 @Component
 public class UserHandler {
-    private final UserService userService;
+
+    @Autowired
+    private  UserService userService;
     
     Mono<ServerResponse> getById(ServerRequest r) {
         return defaultReadResponse(this.userService.get(id(r)));
@@ -62,6 +66,6 @@ public class UserHandler {
     }
 
     private static Long id(ServerRequest r) {
-        return Long.parseUnsignedLong(r.pathVariable("userId"));
+        return Long.parseUnsignedLong(r.pathVariable("id"));
     }
 }
