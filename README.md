@@ -10,6 +10,17 @@
 * (DELETE) => http://localhost:7100/api/posts/{id}
 * (PUT) => http://localhost:7100/api/posts/{id}
 
+### Exemple body posts
+```json
+{
+    "title": "test",
+    "text": "test content",
+    "userId": 2,
+    "privatePost": false
+}
+```
+
+
 ## USERS
 
 * (GET) => http://localhost:7101/api/users
@@ -18,6 +29,17 @@
 * (DELETE) => http://localhost:7101/api/users/{id}
 * (PUT) => http://localhost:7101/api/users/{id}
 
+### Exemple body users
+```json
+{
+    "username": "test", 
+    "prenom": "test",
+    "nom": "saskah",
+    "password": "jaadaelqe",
+    "birthday": "1990-05-15",
+    "description": "hello"
+}
+```
 
 # Afin de lancer le projet 
 
